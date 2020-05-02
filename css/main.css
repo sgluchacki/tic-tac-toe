@@ -1,0 +1,40 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  #board {
+    display: grid;
+    grid-template-columns: repeat(3, 15vmin);
+    grid-template-rows: repeat(3, 15vmin);
+    gap: 0vmin;
+    
+  }
+
+  #board div {
+    /*border-radius: 50%;*/
+    /*border: 5px solid grey;*/
+    width: 15vmin;
+    height: 15vmin;
+    gap: 0vmin;
+
+  }
+
+  .row {
+    display: inline-block;
+    
+    
+  }
+
+  .row div {
+    border: 5px solid grey;
+  }
