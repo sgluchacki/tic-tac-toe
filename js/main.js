@@ -52,7 +52,7 @@ function renderBoard() {
     // iterate over columns and rows looking for 1, -1, and null
     board.forEach(function(rowArr, rowIdx) {
         rowArr.forEach(function(cell, colIdx) {
-            const div = document.getElementById(`c${colIdx}r${rowIdx}`)
+            const div = document.getElementById(`r${rowIdx}c${colIdx}`)
             div.innerText = playerLookup[cell];
         });
     });
