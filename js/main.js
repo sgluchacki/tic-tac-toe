@@ -38,6 +38,7 @@ function init() {
 
 function render() {
     renderBoard();
+    checkWinner();
     
     if (winner) {   
         //display button for play again
@@ -64,6 +65,7 @@ function renderBoard() {
     // render the board
     // iterate over columns and rows looking for 1, -1, and null
     if (winner) {
+        console.log('winner chicken dinner');
         return;
     } else {
         board.forEach(function(rowArr, rowIdx) {
@@ -104,20 +106,21 @@ function clickEvent(event) {
     
     // console.log(event.target);
     //render();
-    checkWinner();      // stop game here if winner
-    if (winner) {
-        board.forEach(function(rowArr, rowIdx) {
-            rowArr.forEach(function(cell, colIdx) {
-                const div = document.getElementById(`r${rowIdx}c${colIdx}`);
-                div.innerText = xAndO[cell];
-            });
-        });
-    }
-    turn *= -1;
-    setTimeout(function(){
-        if (winner) return;
-    }, 500);
     render();
+    //checkWinner();      // stop game here if winner
+    // if (winner) {
+    //     board.forEach(function(rowArr, rowIdx) {
+    //         rowArr.forEach(function(cell, colIdx) {
+    //             const div = document.getElementById(`r${rowIdx}c${colIdx}`);
+    //             div.innerText = xAndO[cell];
+    //         });
+    //     });
+
+    // }
+    turn *= -1;
+    // setTimeout(function(){
+    //     if (winner) return;
+    // }, 500);
     //console.log(winner);
 }
 
@@ -184,7 +187,8 @@ function checkDiagonals() {
 }
 
 function catsGame() {
-    if (!board[0].includes(null) && !board[1].includes(null) && !board[2].includes(null)) {
+    if (winner) return;
+    else if (!board[0].includes(null) && !board[1].includes(null) && !board[2].includes(null)) {
         return winner = 'Tie';
     }
 } 
